@@ -1,6 +1,10 @@
 require "application_system_test_case"
 
 class QuotesTest < ApplicationSystemTestCase
+  setup do
+    @quote = quotes(:first) # Reference to the first fixture quote
+  end
+
   test "create a new quote" do
     # When we visit quotes#index page
     # we expect to see a title with the text "Quotes"
@@ -10,7 +14,7 @@ class QuotesTest < ApplicationSystemTestCase
     # When we click on the "New Quote" button
     # we expect to land on a page with a title "New Quote"
     click_on "New Quote"
-    assert_selector "h1", text: "New Quote"
+    assert_selector "h1", text: "New quote"
 
     # When we fill in the name input with "Capybara quote"
     # and we click "Create Quote"
@@ -35,13 +39,13 @@ class QuotesTest < ApplicationSystemTestCase
     assert_selector "h1", text: "Quotes"
 
     click_on "Edit", match: :first
-    assert_selector "h1", text: "Edit Quote"
+    assert_selector "h1", text: "Edit quote"
 
     fill_in "Name", with: "Updated quote"
     click_on "Update Quote"
 
     assert_selector "h1", text: "Quotes"
-    assert_text "Updated Quote"
+    assert_text "Updated quote"
   end
 
   test "Destroy a quote" do
