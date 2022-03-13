@@ -7,7 +7,7 @@ class QuotesController < ApplicationController
   def show
   end
 
-  def def new
+  def new
     @quote = Quote.new
   end
   
@@ -37,6 +37,7 @@ class QuotesController < ApplicationController
   end
 
   private
+
     def set_quote
       @quote = Quote.find(params[:id])
     end
