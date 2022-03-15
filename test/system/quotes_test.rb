@@ -6,23 +6,15 @@ class QuotesTest < ApplicationSystemTestCase
   end
 
   test "create a new quote" do
-    # When we visit quotes#index page
-    # we expect to see a title with the text "Quotes"
-    visit "/quotes"
+    visit quotes_path
     assert_selector "h1", text: "Quotes"
 
-    # When we click on the "New Quote" button
-    # we expect to land on a page with a title "New Quote"
     click_on "New Quote"
-    assert_selector "h1", text: "New quote"
-
-    # When we fill in the name input with "Capybara quote"
-    # and we click "Create Quote"
     fill_in "Name", with: "Capybara quote"
+
+    assert_selector "h1", text: "New Capybara"
     click_on "Create Quote"
 
-    # We expect to be back on the page with the title "Quotes"
-    # and to see our "Capybara quote" added to the list
     assert_selector "h1", text: "Quotes"
     assert_text "Capybara quote"
   end
@@ -39,9 +31,9 @@ class QuotesTest < ApplicationSystemTestCase
     assert_selector "h1", text: "Quotes"
 
     click_on "Edit", match: :first
-    assert_selector "h1", text: "Edit quote"
-
     fill_in "Name", with: "Updated quote"
+
+    assert_selector "h1", text: "Quotes"
     click_on "Update Quote"
 
     assert_selector "h1", text: "Quotes"
