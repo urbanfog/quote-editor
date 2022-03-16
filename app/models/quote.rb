@@ -9,4 +9,6 @@ class Quote < ApplicationRecord
   
   # Below line equivalent to the above
   broadcasts_to -> (quote) { "quotes" }, inserts_by: :prepend
+
+  belongs_to :company
 end

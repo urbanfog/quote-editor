@@ -1,8 +1,11 @@
 first:
   name: First Quote
+  company: kpmg
 
 second:
   name: Second Quote
+  company: kpmg
 
 third:
   name: Third Quote
+  company: pwc
