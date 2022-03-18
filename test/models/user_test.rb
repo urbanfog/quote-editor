@@ -1,7 +1,7 @@
 require "test_helper"
 
 class UserTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "user name is correct" do
+    assert 'Accountant', users(:accountant).name
+  end
 end
