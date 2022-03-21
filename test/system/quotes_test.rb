@@ -43,7 +43,10 @@ class QuotesTest < ApplicationSystemTestCase
     visit quotes_path
     assert_text @quote.name
 
-    click_on "Delete", match: :first
+    within id: dom_id(@quote) do
+      click_on "Delete"
+    end
+    
     assert_no_text @quote.name
   end
 end
