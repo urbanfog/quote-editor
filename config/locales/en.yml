@@ -31,3 +31,8 @@
 
 en:
   hello: "Hello world"
+  simple_form:
+    helpers:
+      submit:
+        line_item_date:
+          update: Testing
