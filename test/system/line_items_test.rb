@@ -30,6 +30,7 @@ class LineItemSystemTest < ApplicationSystemTestCase
     assert_selector "h1", text: "First Quote"
     assert_text "Animation"
     assert_text number_to_currency(100)
+    assert_text number_to_currency(@quote.total_price)
   end
 
   test "Updating a line_item" do
@@ -45,6 +46,7 @@ class LineItemSystemTest < ApplicationSystemTestCase
     
     assert_text "Capybara"
     assert_text number_to_currency(1234)
+    assert_text number_to_currency(@quote.total_price)
   end
 
   test "Destroying a line_item" do
@@ -59,5 +61,7 @@ class LineItemSystemTest < ApplicationSystemTestCase
     within id: dom_id(@line_item_date) do
       assert_no_text @line_item.name
     end
+    
+    assert_text number_to_currency(@quote.total_price)
   end
 end
